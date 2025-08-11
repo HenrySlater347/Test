@@ -1,0 +1,10 @@
+#Import the dataset and pandas
+from sklearn import datasets
+import pandas as pd
+ 
+# Load the diabetes dataset and create a dataframe
+diabetes = datasets.load_diabetes()
+df = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)
+ 
+# Add the target variable to the dataframe
+df['target'] = diabetes.target
