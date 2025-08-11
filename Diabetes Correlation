@@ -1,10 +1,10 @@
-#Import the dataset and pandas
-from sklearn import datasets
-import pandas as pd
- 
-# Load the diabetes dataset and create a dataframe
-diabetes = datasets.load_diabetes()
-df = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)
- 
-# Add the target variable to the dataframe
-df['target'] = diabetes.target
+/* For reading tab-delimited file from http://www-stat.stanford.edu/~hastie/Papers/LARS/ */
+options nodate nonumber ps=2000;
+data diabetes;
+infile "K:\diabetes.tab.txt" firstobs=2 delimiter='09'x;
+input age sex bmi bp s1 s2 s3 s4 s5 s6 y;
+proc means data=diabetes n mean std;
+proc print data=diabetes;
+run;
+
+
